@@ -1,0 +1,14 @@
+- name: install and run nginx
+  #Make sure hetrogenous
+  hosts: web
+  become: yes # -b
+  tasks:
+  - name: install nginx
+    ansbile.builtin.package:
+      name: nginx
+      state: present
+  - name: Start NGINX service
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enabled: yes
