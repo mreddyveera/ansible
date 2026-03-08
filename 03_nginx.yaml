@@ -4,7 +4,7 @@
   become: yes # -b
   tasks:
   - name: install nginx
-    ansbile.builtin.package:
+    ansbile.builtin.service:
       name: nginx
       state: present
   - name: Start NGINX service
