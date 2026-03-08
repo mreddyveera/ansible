@@ -1,0 +1,9 @@
+- name: Variables in Ansible
+  hosts: local
+  connection: local
+  vars_files: #PLAY LEVEL VARIABLES PARENT LEVEL
+  - vars_files.yaml
+  tasks: 
+  - name: print course information
+    ansible.builtin.debug:
+      msg: "Course is {{COURSE}}, Duration is {{DURATION}}, Trainer is {{TRAINER}}"

@@ -1,11 +1,17 @@
 - name: Variables in Ansible
   hosts: local
   connection: local
-  vars:
+  vars: #PLAY LEVEL VARIABLES PARENT LEVEL
     COURSE: "DEVOPS WITH SHIVA"
     DURATION: '120HRS'
     TRAINER: "SIvakumar"
-  tasks:
+  tasks: 
+  - name: print the Variables
+    vars: #TASK LEVEL VARIABLES CHILD LEVEL
+      COURSE: Ansible
+    ansible.builtin.debug:
+      msg: "Course is {{COURSE}}, Duration is {{DURATION}}, Trainer is {{TRAINER}}"
+  
   - name: print the Variables
     ansible.builtin.debug:
       msg: "Course is {{COURSE}}, Duration is {{DURATION}}, Trainer is {{TRAINER}}"
