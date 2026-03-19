@@ -1,0 +1,11 @@
+- name: Example with multiple tasks
+  hosts: local
+  connection: local
+  tasks:
+    - name: Task 1
+      ansible.builtin.debug:
+        msg: "First task"
+
+    - name: Task 2
+      ansible.builtin.debug:
+        msg: "Second task"
