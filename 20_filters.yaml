@@ -5,3 +5,9 @@
   - name: filters and functions
     ansible.builtin.debug:
       msg: "Hello {{ person | default ('Manikanta') }}"
+
+  - name: convert strings into list
+    vars:
+      fruits: "apple,orange,banana" #string
+    ansinle.builtin.debug:
+      msg: "Fruits are : {{ fruits.split(',') }}"
