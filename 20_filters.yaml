@@ -1,0 +1,7 @@
+- name: fliters
+  hosts: web
+  become: yes
+  tasks:
+  - name: filters and functions
+    ansbile.builtin.debug:
+      msg: "Hello {{person | default('Ramesh') }}"

@@ -1,0 +1,15 @@
+- name: loops
+  hosts: web
+  become: yes
+  tasks:
+  - name: loops
+    ansible.builtin.debug:
+      name: {{item.name}}
+      state: {{item.state}}
+      
+    loop:
+      - { name: 'git', state: 'present'}
+      - { name: 'mysql', state: 'absent'}
+      - { name: 'gcc', state: 'present'}
+      - { name: 'zip', state: 'absent'}
+      

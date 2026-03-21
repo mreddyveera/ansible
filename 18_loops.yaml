@@ -1,0 +1,15 @@
+- name: loops
+  hosts: web
+  become: yes
+  tasks:
+  - name: loops
+    ansible.builtin.debug:
+      name: {{item}}
+      state: installed
+      
+    loop:
+      - gcc
+      - git
+      - mysql
+      - zip
+      
