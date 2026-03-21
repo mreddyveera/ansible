@@ -10,4 +10,4 @@
     vars:
       fruits: "apple,orange,banana" #string
     ansinle.builtin.debug:
-      msg: "Fruits are : {{ fruits.split(',') }}"
+      msg: "Fruits are : {{ fruits | split(',') }}"
