@@ -3,5 +3,5 @@
   become: yes
   tasks:
   - name: filters and functions
-    ansbile.builtin.debug:
+    ansible.builtin.debug:
       msg: "Hello {{person}}"
