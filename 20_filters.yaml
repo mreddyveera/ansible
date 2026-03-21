@@ -4,4 +4,4 @@
   tasks:
   - name: filters and functions
     ansible.builtin.debug:
-      msg: "Hello {{person}}"
+      msg: "Hello {{ person | default ('Manikanta') }}"
