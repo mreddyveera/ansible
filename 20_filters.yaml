@@ -19,4 +19,4 @@
         duration: 120HRS
         trainer: sivakumar
     ansible.builtin.debug:
-      msg: "list is {{courses | map ('courses') | list}}"
+      msg: "list is {{courses | dict2items}}"
