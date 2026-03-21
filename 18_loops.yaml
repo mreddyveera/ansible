@@ -4,9 +4,8 @@
   tasks:
   - name: loops
     ansible.builtin.debug:
-      name: "{{ item }}""
+      name: "{{ item }}"
       state: installed
-      
     loop:
       - gcc
       - git
