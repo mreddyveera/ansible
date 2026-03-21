@@ -12,7 +12,7 @@
     ansible.builtin.debug:
       msg: "Fruits are : {{ fruits | split(',') }}"
 
-  - name: convert map into list
+  - name: convert map into dict
     vars:
       courses:
         name: ansible
@@ -20,3 +20,42 @@
         trainer: sivakumar
     ansible.builtin.debug:
       msg: "list is {{courses | dict2items}}"
+
+  - name: convert list into map
+    vars:
+      course:
+      - {'key': 'name', 'value': 'ansible'}
+      - {'key': 'duration', 'value': '10hrs'}
+      - {'key': 'trainer', 'value': 'sivakumar'}
+    ansible.builtin.debug:
+      msg: "Course info: {{ course | items2dict }}"
+  
+  - name: convert upper case to lower case
+    vars:
+      name: "Sivakumatr Reddy"
+    ansible.builtin.debug:
+      msg: "Course info: {{ name | lower }}"
+
+  - name: convert lower case to upper case
+    vars:
+      name: "Sivakumatr Reddy"
+    ansible.builtin.debug:
+      msg: "Course info: {{ name | upper }}"
+
+  - name: Print min and max
+    vars:
+      numbers: [1,30,57,87,98,46845]
+      
+    ansible.builtin.debug:
+      msg: " Min is : {{ numbers | min }}, Max is: {{ numbers | max }} "
+  
+  - name: Validate IPV4
+    vars:
+      ip: "172.31.7.46"
+    ansible.builtin.debug:
+      msg: "{{ ip | ansible.utils.ipaddr }}"
+
+
+
+      
+

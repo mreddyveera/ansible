@@ -1,0 +1,16 @@
+- name:
+  hosts: web
+  become: yes
+  tasks:
+  - name: execute ls command
+    #ansible.builtin.command: ls -ltr > /tmp/output.txt
+    ansible.builtin.shell: ls -ltr > /tmp/output.txt
+
+  - name: execute ls command
+    #ansible.builtin.command: ls -ltr > /tmp/output.txt
+    ansible.builtin.shell: ls -ltr
+    register: command_module
+
+  - name: print the output
+    ansible.builtin.debug:
+      msg: "{{ command_module }}"
