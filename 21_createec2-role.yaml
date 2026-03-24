@@ -13,7 +13,7 @@
   tasks:
   - name: Install python dependencies
     ansible.builtin.pip:
-      state: present
+      name: "{{ item }}"
       executable: pip3.9
     loop:
     - botocore
