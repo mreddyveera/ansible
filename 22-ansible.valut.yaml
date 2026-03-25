@@ -1,0 +1,16 @@
+ansible-vault create <file-name>.yaml
+Give the password
+mysql_root_password: ExpenseApp@1
+:wq
+ansible-vault edit <file-name>
+ansible-vault view <file-name>
+cat vault.yaml
+in vars vault.yaml
+unsecure info -main.yaml
+secure-info- vault.yaml
+
+In order l;ook into vault: vars_files:
+-roles/mysql/vars/vault.yaml
+
+
+with command --ask-vault-password
