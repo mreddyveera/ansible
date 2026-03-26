@@ -1,9 +1,8 @@
 - name: nginx installation
-  hosts: all
+  hosts: aws_ec2
   become: yes
   tasks:
   - name: install nginx
     ansible.builtin.package:
       name: nginx
       state: installed
-      
