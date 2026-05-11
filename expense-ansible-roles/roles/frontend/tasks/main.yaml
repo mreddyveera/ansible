@@ -1,0 +1,39 @@
+  - name: install nginx server
+    ansible.builtin.package:
+      name: nginx
+      state: installed
+  - name: start the service
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enabled: yes
+
+  - name: Delete content & directory
+    ansible.builtin.file:
+      state: absent
+      path: /usr/share/nginx/html
+
+  - name: create directory
+    ansible.builtin.file:
+      state: directory
+      path: /usr/share/nginx/html
+
+  - name: Download the latest zip
+    ansible.builtin.get_url:
+      url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
+      dest: /tmp/frontend.zip
+      mode: '0744'
+  
+  - name: Unarchive
+    ansible.builtin.unarchive:
+      src: /tmp/frontend.zip
+      dest: /usr/share/nginx/html
+      remote_src: yes
+
+  - name: Copy backend service file
+    ansible.builtin.template:
+      src: expense.conf.j2
+      dest: /etc/nginx/default.d/expense.conf
+      mode: '0644'
+    notify:
+    - Restart Nginx
