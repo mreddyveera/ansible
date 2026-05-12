@@ -253,10 +253,6 @@ Feel free to expand this repository with:
 - More comprehensive examples
 - Documentation improvements
 
-## 📄 License
-
-Not specified - Update with appropriate license
-
 ## 📧 Contact
 
 **Repository Owner:** mreddyveera
